@@ -25,8 +25,7 @@
 
         <Button Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" Width="100" Height="50" Background="AliceBlue" Margin="10,10,10,10">Nowa Rezerwacja</Button>
         <Button Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" Width="100" Height="50" Background="AliceBlue" Margin="10,10,10,10">Zmień Rezerwacje</Button>
-        <Button Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" Width="100" Height="50" Background="IndianRed" Margin="10,10,10,10" FontWeight="Normal" FontStyle="Normal">Usuń Rezerwacje</Button>
-        
-        <ListBox Grid.Column="3" Grid.Row="1" Grid.RowSpan="4" Background="Azure"/>
+
+        <DataGrid Grid.Column="3" Grid.Row="1" Grid.RowSpan="4" Background="Azure"/>
     </Grid>
 </Window>
