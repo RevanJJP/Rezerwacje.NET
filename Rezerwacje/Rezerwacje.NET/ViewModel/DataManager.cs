@@ -44,5 +44,37 @@ namespace Rezerwacje.NET.ViewModel
             }
         }
 
+        public List<RoomViewObject> Rooms
+        {
+            get
+            {
+                List<Room> roomList = _ctx.Room.ToList();
+                List<RoomViewObject> roomViewList = new List<RoomViewObject>();
+
+                foreach (Room room in roomList)
+                {
+                    roomViewList.Add(new RoomViewObject(room));
+                }
+
+                return roomViewList;
+            }
+        }
+
+        public List<GuestViewObject> Guests
+        {
+            get
+            {
+                List<Guest> guestList = _ctx.Guest.ToList();
+                List<GuestViewObject> guestViewList = new List<GuestViewObject>();
+
+                foreach (Guest guest in guestList)
+                {
+                    guestViewList.Add(new GuestViewObject(guest));
+                }
+
+                return guestViewList;
+            }
+        }
+
     }
 }
