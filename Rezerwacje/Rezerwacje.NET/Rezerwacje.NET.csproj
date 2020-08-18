@@ -16,13 +16,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="View\GuestForm.xaml.cs">
+    <Compile Update="View\GuestFormWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <Page Update="View\GuestForm.xaml">
+    <Page Update="View\GuestFormWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
