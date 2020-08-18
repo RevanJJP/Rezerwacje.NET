@@ -15,9 +15,9 @@ namespace Rezerwacje.NET
     /// <summary>
     /// Logika interakcji dla klasy Window1.xaml
     /// </summary>
-    public partial class Window1 : Window
+    public partial class GuestFormWindow : Window
     {
-        public Window1()
+        public GuestFormWindow()
         {
             InitializeComponent();
         }
