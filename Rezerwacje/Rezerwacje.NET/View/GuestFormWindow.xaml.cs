@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Rezerwacje.NET.ViewModel;
+using Rezerwacje.NET.ViewModel.ViewObjects;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -17,9 +19,27 @@ namespace Rezerwacje.NET
     /// </summary>
     public partial class GuestFormWindow : Window
     {
-        public GuestFormWindow()
+        private DataManager _dataManager;
+        public GuestFormWindow(DataManager dataManager)
         {
+            _dataManager = dataManager;
             InitializeComponent();
+        }
+
+        private void AddGuestButton_Click(object sender, RoutedEventArgs e)
+        {
+            GuestViewObject guest = new GuestViewObject();
+            guest.Name = NameForm.Text;
+            guest.Surname = SurnameForm.Text;
+            guest.Email = EmailForm.Text;
+            guest.Phone = PhoneForm.Text;
+
+            if (!_dataManager.GuestValidator.ValidateGuest(guest, true)) return;
+
+            guest.AddToDatabase(_dataManager.Context);
+            WindowManager.ShowPopupMessage($"Created new guest: {guest.Name} {guest.Surname}.");
+            _dataManager.Update();
+            this.Close();
         }
     }
 }

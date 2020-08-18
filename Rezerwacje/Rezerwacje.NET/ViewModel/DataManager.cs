@@ -12,12 +12,15 @@ namespace Rezerwacje.NET.ViewModel
 {
     public class DataManager
     {
-
         private DbReservationsContext _ctx;
+        private ReservationValidator _reservationValidator;
+        private GuestValidator _guestValidator;
 
         public DataManager()
         {
             _ctx = new DbReservationsContext();
+            _reservationValidator = new ReservationValidator(_ctx);
+            _guestValidator = new GuestValidator(_ctx);
         }
 
 
@@ -26,6 +29,20 @@ namespace Rezerwacje.NET.ViewModel
             get
             {
                 return _ctx;
+            }
+        }
+
+        public ReservationValidator ReservationValidator {
+            get { 
+                return _reservationValidator; 
+            } 
+        }
+
+        public GuestValidator GuestValidator
+        {
+            get
+            {
+                return _guestValidator;
             }
         }
 

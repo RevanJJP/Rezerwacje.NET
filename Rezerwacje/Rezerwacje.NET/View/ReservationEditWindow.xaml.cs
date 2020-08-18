@@ -99,8 +99,9 @@ namespace Rezerwacje.NET
 
         private void NewGuestButton_Click(object sender, RoutedEventArgs e)
         {
-            GuestFormWindow guestFormWindow = new GuestFormWindow();
+            GuestFormWindow guestFormWindow = new GuestFormWindow(_dataManager);
             guestFormWindow.ShowDialog();
+            SetupDataGrids();
         }
 
         private void ApplyButton_Click(object sender, RoutedEventArgs e)
@@ -137,6 +138,8 @@ namespace Rezerwacje.NET
             }
             _reservation.setGuest(guestViewObject.Id);
 
+
+            if (!_dataManager.ReservationValidator.ValidateReservation(_reservation, true)) return;
 
             if (_isReservationNew)
             {
