@@ -53,12 +53,8 @@ namespace Rezerwacje.NET.ViewModel
                                                         )
                                                         ).ToArray();
 
-            WindowManager.ShowPopupMessage(output.Length.ToString());
-
-
-            if (output == null)
+            if (output.Length == 0)
             {
-                WindowManager.ShowPopupMessage("NONE FOUND");
                 return true;
             }
             else
