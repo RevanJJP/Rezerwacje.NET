@@ -34,10 +34,12 @@ namespace Rezerwacje.NET
             guest.Email = EmailForm.Text;
             guest.Phone = PhoneForm.Text;
 
+            if (!_dataManager.GuestValidator.ValidateGuest(guest, true)) return;
 
             guest.AddToDatabase(_dataManager.Context);
             WindowManager.ShowPopupMessage($"Created new guest: {guest.Name} {guest.Surname}.");
             _dataManager.Update();
+            this.Close();
         }
     }
 }

@@ -14,11 +14,13 @@ namespace Rezerwacje.NET.ViewModel
     {
         private DbReservationsContext _ctx;
         private ReservationValidator _reservationValidator;
+        private GuestValidator _guestValidator;
 
         public DataManager()
         {
             _ctx = new DbReservationsContext();
             _reservationValidator = new ReservationValidator(_ctx);
+            _guestValidator = new GuestValidator(_ctx);
         }
 
 
@@ -34,6 +36,14 @@ namespace Rezerwacje.NET.ViewModel
             get { 
                 return _reservationValidator; 
             } 
+        }
+
+        public GuestValidator GuestValidator
+        {
+            get
+            {
+                return _guestValidator;
+            }
         }
 
         public ReservationViewObject GetReservation(int Id)
