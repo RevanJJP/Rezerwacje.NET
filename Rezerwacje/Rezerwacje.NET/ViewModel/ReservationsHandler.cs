@@ -1,5 +1,6 @@
 ﻿using Rezerwacje.NET.Data;
 using Rezerwacje.NET.Model;
+using Rezerwacje.NET.ViewModel.ViewObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +10,11 @@ namespace Rezerwacje.NET.ViewModel
 {
     public class ReservationsHandler
     {
-        private DbReservationsContext _ctx;
+        private ReservationViewObject _reservation;
 
-        public ReservationsHandler(DbReservationsContext context)
+        public ReservationsHandler(ReservationViewObject reservation)
         {
-            _ctx = context;
+            _reservation = reservation;
         }
 
 
