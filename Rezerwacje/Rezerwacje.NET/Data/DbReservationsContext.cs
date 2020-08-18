@@ -1,8 +1,9 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Rezerwacje.NET.Model;
 
-namespace Rezerwacje.NET.Model
+namespace Rezerwacje.NET.Data
 {
     public partial class DbReservationsContext : DbContext
     {
@@ -23,6 +24,7 @@ namespace Rezerwacje.NET.Model
         {
             if (!optionsBuilder.IsConfigured)
             {
+#warning Update database path!
                 optionsBuilder.UseSqlServer("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Development\\Rezerwacje.NET\\Rezerwacje\\Rezerwacje.NET\\Database\\dbReservations.mdf;Integrated Security=True");
             }
         }
