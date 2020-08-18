@@ -1,5 +1,6 @@
 ﻿using Rezerwacje.NET.Model;
 using Rezerwacje.NET.ViewModel;
+using Rezerwacje.NET.ViewModel.ViewObjects;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -29,17 +30,32 @@ namespace Rezerwacje.NET
 
         public MainWindow()
         {
-            DataContext = this;
             DataManager = new DataManager();
-            
+            DataManager.Update();
+
             InitializeComponent();
             UpdateReservationDataGrid();
         }
 
         private void NewReservationButton_Click(object sender, RoutedEventArgs e)
         {
-            ReservationEditWindow reservationEditWindow = new ReservationEditWindow(new ReservationsHandler(DataManager.Context));
+            ReservationEditWindow reservationEditWindow = new ReservationEditWindow(DataManager);
             reservationEditWindow.ShowDialog();
+            UpdateReservationDataGrid();
+        }
+
+        private void editReservationButton_Click(object sender, RoutedEventArgs e)
+        {
+            ReservationViewObject reservationObject = (ReservationViewObject) reservationsDataGrid.SelectedItem;
+            if (reservationObject == null)
+            {
+                WindowManager.ShowPopupMessage("Select reservation to edit.");
+                return;
+            }
+
+            ReservationEditWindow reservationEditWindow = new ReservationEditWindow(DataManager, reservationObject);
+            reservationEditWindow.ShowDialog();
+            UpdateReservationDataGrid();
         }
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)

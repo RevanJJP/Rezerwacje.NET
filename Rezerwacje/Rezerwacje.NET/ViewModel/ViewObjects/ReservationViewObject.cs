@@ -126,6 +126,10 @@ namespace Rezerwacje.NET.ViewModel.ViewObjects
             }
         }
 
+        public int getGuestId()
+        {
+            return (int)(_reservation?.GuestId);
+        }
 
         public void setGuest(int guestID)
         {
